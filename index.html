@@ -1,365 +1,200 @@
 <!DOCTYPE html>
 <html lang="vi">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Anti-Revoke Locket Gold - DNS Profile</title>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LocketGold - Nâng cấp Locket lên Gold</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-      }
-
-      body {
-        font-family: "SF Pro Display", -apple-system, BlinkMacSystemFont,
-          "Segoe UI", Roboto, sans-serif;
-        background: #0a0a0a;
-        background-image: radial-gradient(
-            circle at 20% 50%,
-            rgba(120, 119, 198, 0.3) 0%,
-            transparent 50%
-          ),
-          radial-gradient(
-            circle at 80% 20%,
-            rgba(255, 119, 198, 0.3) 0%,
-            transparent 50%
-          ),
-          radial-gradient(
-            circle at 40% 80%,
-            rgba(120, 119, 198, 0.2) 0%,
-            transparent 50%
-          );
-        min-height: 100vh;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        padding: 20px;
-      }
-
-      .container {
-        background: rgba(20, 20, 25, 0.8);
-        backdrop-filter: blur(20px);
-        border-radius: 20px;
-        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-        max-width: 500px;
-        width: 100%;
-        padding: 40px;
-        text-align: center;
-        border: 1px solid rgba(120, 119, 198, 0.2);
-        transition: all 0.3s ease;
-      }
-
-      .container:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 25px 50px rgba(120, 119, 198, 0.2);
-        border: 1px solid rgba(120, 119, 198, 0.3);
-      }
-
-      .logo {
-        width: 80px;
-        height: 80px;
-        background: linear-gradient(135deg, #7877c6, #ff77c6);
-        border-radius: 20px;
-        margin: 0 auto 20px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 36px;
-        color: white;
-        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-        animation: pulse 2s infinite;
-      }
-
-      @keyframes pulse {
-        0% {
-          transform: scale(1);
-        }
-        50% {
-          transform: scale(1.05);
-        }
-        100% {
-          transform: scale(1);
-        }
-      }
-
-      h1 {
-        color: #ffffff;
-        font-size: 28px;
-        font-weight: 700;
-        margin-bottom: 10px;
-        background: linear-gradient(135deg, #7877c6, #ff77c6);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        background-clip: text;
-      }
-
-      .subtitle {
-        color: #b0b0b0;
-        font-size: 16px;
-        margin-bottom: 30px;
-        line-height: 1.6;
-      }
-
-      .features {
-        text-align: left;
-        margin-bottom: 40px;
-      }
-
-      .feature {
-        display: flex;
-        align-items: center;
-        margin-bottom: 15px;
-        padding: 15px;
-        background: rgba(120, 119, 198, 0.15);
-        border-radius: 12px;
-        transition: all 0.3s ease;
-        border: 1px solid rgba(120, 119, 198, 0.2);
-      }
-
-      .feature:hover {
-        background: rgba(120, 119, 198, 0.25);
-        border: 1px solid rgba(120, 119, 198, 0.4);
-        transform: translateX(5px);
-      }
-
-      .feature-icon {
-        width: 24px;
-        height: 24px;
-        background: linear-gradient(135deg, #7877c6, #ff77c6);
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        margin-right: 15px;
-        color: white;
-        font-size: 12px;
-      }
-
-      .feature-text {
-        color: #e0e0e0;
-        font-size: 14px;
-        font-weight: 500;
-      }
-
-      .download-btn {
-        background: linear-gradient(135deg, #7877c6 0%, #ff77c6 100%);
-        color: white;
-        border: none;
-        padding: 18px 40px;
-        font-size: 16px;
-        font-weight: 600;
-        border-radius: 50px;
-        cursor: pointer;
-        width: 100%;
-        transition: all 0.3s ease;
-        box-shadow: 0 4px 15px rgba(120, 119, 198, 0.4);
-        position: relative;
-        overflow: hidden;
-      }
-
-      .download-btn:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 6px 20px rgba(120, 119, 198, 0.6);
-      }
-
-      .download-btn:active {
-        transform: translateY(0);
-      }
-
-      .download-btn::before {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: -100%;
-        width: 100%;
-        height: 100%;
-        background: linear-gradient(
-          90deg,
-          transparent,
-          rgba(255, 255, 255, 0.3),
-          transparent
-        );
-        transition: left 0.6s;
-      }
-
-      .download-btn:hover::before {
-        left: 100%;
-      }
-
-      .warning {
-        background: rgba(255, 152, 0, 0.15);
-        border: 1px solid rgba(255, 152, 0, 0.3);
-        color: #ffab40;
-        padding: 15px;
-        border-radius: 12px;
-        margin-top: 25px;
-        font-size: 14px;
-        line-height: 1.5;
-      }
-
-      .warning-icon {
-        display: inline-block;
-        margin-right: 8px;
-        font-size: 16px;
-      }
-
-      .steps {
-        text-align: left;
-        margin-top: 30px;
-        padding: 20px;
-        background: rgba(120, 119, 198, 0.1);
-        border-radius: 12px;
-        border: 1px solid rgba(120, 119, 198, 0.2);
-      }
-
-      .steps h3 {
-        color: #ffffff;
-        margin-bottom: 15px;
-        font-size: 18px;
-      }
-
-      .step {
-        margin-bottom: 10px;
-        color: #d0d0d0;
-        font-size: 14px;
-        line-height: 1.5;
-      }
-
-      .step-number {
-        display: inline-block;
-        width: 20px;
-        height: 20px;
-        background: linear-gradient(135deg, #7877c6, #ff77c6);
-        color: white;
-        border-radius: 50%;
-        text-align: center;
-        font-size: 12px;
-        font-weight: bold;
-        margin-right: 10px;
-        line-height: 20px;
-      }
-
-      @media (max-width: 480px) {
-        .container {
-          padding: 30px 20px;
+        .heart-pulse {
+            animation: pulse 2s infinite;
         }
 
-        h1 {
-          font-size: 24px;
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.1);
+            }
+            100% {
+                transform: scale(1);
+            }
         }
 
-        .download-btn {
-          padding: 16px 30px;
-          font-size: 15px;
+        .copy-field:hover {
+            background-color: rgba(241, 245, 249, 0.75);
         }
-      }
+
+        html {
+            overflow-x: hidden;
+        }
     </style>
-  </head>
-  <body>
-    <div class="container">
-      <div class="logo">
-            <img src="locket.png" alt="Locket Logo" style="width: 80px; height: 80px; border-radius: 20px; object-fit: cover;">
-      </div>
+    <meta name="description" content="Hướng dẫn nâng cấp Locket lên Gold: cấu hình proxy, truy cập mitm.it và tải chứng chỉ chặn thu hồi.">
+    <meta name="theme-color" content="#f59e0b">
+    <link rel="icon" type="image/png" href="./img/logoLocket.png" />
+</head>
 
-      <h1>Anti-Revoke Locket Gold</h1>
-      <p class="subtitle">DNS Profile chống thu hồi Gold cho ứng dụng Locket</p>
+<body class="bg-gradient-to-b from-slate-50 to-slate-100 min-h-screen overflow-x-hidden">
+    <div class="container mx-auto px-4 pt-8 pb-6 md:pb-8 max-w-3xl relative">
+        <div class="fixed inset-0 pointer-events-none select-none -z-10" aria-hidden="true">
+            <div class="absolute -top-10 left-1/2 -translate-x-1/2 w-64 h-64 bg-gradient-to-tr from-indigo-200 via-emerald-200 to-transparent opacity-40 blur-3xl rounded-full"></div>
+            <div class="absolute -bottom-20 left-1/2 -translate-x-1/2 w-72 h-72 bg-gradient-to-br from-emerald-200 via-indigo-200 to-transparent opacity-40 blur-3xl rounded-full"></div>
+        </div>
+        <header class="text-center mb-8">
+            <div class="heart-pulse inline-block mb-4">
+                <i class="fas fa-heart text-yellow-500 text-6xl"></i>
+            </div>
+            <h1 class="text-3xl font-bold text-slate-800 mb-2">Locket<span class="text-amber-500">Gold</span></h1>
+            <div class="flex items-center justify-center gap-2 mb-1">
+                <span class="inline-flex items-center gap-1 text-xs font-semibold text-yellow-800 bg-yellow-100 border border-yellow-200 rounded-full px-2 py-1">
+          <i class="fas fa-star text-yellow-500"></i> Gold Ready
+        </span>
+                <span class="inline-flex items-center gap-1 text-xs font-semibold text-emerald-800 bg-emerald-100 border border-emerald-200 rounded-full px-2 py-1">
+          <i class="fas fa-shield-alt text-emerald-600"></i> Secure Setup
+        </span>
+            </div>
+            <p class="text-slate-600 max-w-md mx-auto">Nâng cấp Locket lên phiên bản Gold chỉ với vài bước đơn giản</p>
+        </header>
 
-      <div class="features">
-        <div class="feature">
-          <div class="feature-icon">✓</div>
-          <div class="feature-text">Chống thu hồi Gold hiệu quả</div>
-        </div>
-        <div class="feature">
-          <div class="feature-icon">🚀</div>
-          <div class="feature-text">
-            Tương thích với tất cả phiên bản của Locket
-          </div>
-        </div>
-        <div class="feature">
-          <div class="feature-icon">🔒</div>
-          <div class="feature-text">An toàn và bảo mật cao</div>
-        </div>
-        <div class="feature">
-          <div class="feature-icon">⚡</div>
-          <div class="feature-text">Cài đặt nhanh chóng và đơn giản</div>
-        </div>
-      </div>
+        <div class="rounded-2xl p-[1px] bg-gradient-to-r from-indigo-200 via-emerald-200 to-indigo-200 mb-8">
+            <main class="bg-white/85 backdrop-blur-md rounded-2xl shadow-lg overflow-hidden border border-white/60">
+                <div class="p-6 border-b border-slate-200">
+                    <h2 class="text-xl font-semibold text-slate-800 mb-4">Hướng dẫn thực hiện</h2>
+                    <div class="space-y-4">
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0 bg-indigo-500 rounded-xl w-8 h-8 flex items-center justify-center text-white font-bold mr-3 mt-0.5 shadow-sm">1</div>
+                            <div>
+                                <p class="font-medium text-slate-800">Vào <span class="bg-sky-100 px-2 py-1 rounded">Cài đặt</span> → <span class="bg-sky-100 px-2 py-1 rounded">Wi‑Fi</span> → Nhấn vào biểu tượng <i class="fas fa-info-circle text-indigo-600"></i> của Wi‑Fi</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0 bg-indigo-500 rounded-xl w-8 h-8 flex items-center justify-center text-white font-bold mr-3 mt-0.5 shadow-sm">2</div>
+                            <div>
+                                <p class="font-medium text-slate-800">Chọn <span class="bg-sky-100 px-2 py-1 rounded">Cấu hình Proxy</span> → <span class="bg-sky-100 px-2 py-1 rounded">Thủ công</span></p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0 bg-indigo-500 rounded-xl w-8 h-8 flex items-center justify-center text-white font-bold mr-3 mt-0.5 shadow-sm">3</div>
+                            <div>
+                                <p class="font-medium text-slate-800 mb-2">Nhập thông tin Server và Port sau:</p>
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-3">
+                                    <button class="copy-field text-left bg-white rounded-xl p-3 border border-slate-200 ring-1 ring-slate-100 cursor-pointer transition-all duration-200 hover:ring-indigo-200 hover:shadow-sm" data-copy="locketgold.dinhduyvinh.me" aria-label="Sao chép Server">
+                  <div class="flex justify-between items-center">
+                    <div>
+                      <p class="text-sm text-slate-600 font-medium">Server</p>
+                      <p id="server" class="text-slate-800 font-semibold">locketgold.dinhduyvinh.me</p>
+                    </div>
+                    <i class="far fa-copy text-indigo-500"></i>
+                  </div>
+                </button>
+                                    <button class="copy-field text-left bg-white rounded-xl p-3 border border-slate-200 ring-1 ring-slate-100 cursor-pointer transition-all duration-200 hover:ring-indigo-200 hover:shadow-sm" data-copy="8080" aria-label="Sao chép Port">
+                  <div class="flex justify-between items-center">
+                    <div>
+                      <p class="text-sm text-slate-600 font-medium">Port</p>
+                      <p id="port" class="text-slate-800 font-semibold">8080</p>
+                    </div>
+                    <i class="far fa-copy text-indigo-500"></i>
+                  </div>
+                </button>
+                                </div>
+                                <p class="text-slate-600 text-sm">Nhấn vào từng ô để sao chép</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0 bg-indigo-500 rounded-xl w-8 h-8 flex items-center justify-center text-white font-bold mr-3 mt-0.5 shadow-sm">4</div>
+                            <div>
+                                <p class="font-medium text-slate-800">Nhấn <span class="bg-sky-100 px-2 py-1 rounded">Lưu</span> để hoàn tất cài đặt</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
-      <button class="download-btn" onclick="downloadProfile()">
-        📱 Cài Đặt DNS Profile
-      </button>
+                <div class="p-6">
+                    <h2 class="text-xl font-semibold text-slate-800 mb-4">Cài đặt chứng chỉ</h2>
+                    <div class="space-y-4">
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0 bg-indigo-500 rounded-xl w-8 h-8 flex items-center justify-center text-white font-bold mr-3 mt-0.5 shadow-sm">5</div>
+                            <div>
+                                <p class="font-medium text-slate-800 mb-3">Sau khi cài đặt Proxy, truy cập trang sau để tải chứng chỉ:</p>
+                                <a href="http://mitm.it" target="_blank" rel="noopener" class="inline-block bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-2.5 px-4 rounded-xl transition-colors duration-200 mb-3 border border-indigo-700/30 shadow-sm">
+                <i class="fas fa-external-link-alt mr-2"></i>Truy cập mitm.it
+              </a>
+                                <p class="text-slate-600 text-sm">Chọn phiên bản iOS tải về thiết bị và cài đặt tin cậy chứng nhận</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0 bg-indigo-500 rounded-xl w-8 h-8 flex items-center justify-center text-white font-bold mr-3 mt-0.5 shadow-sm">6</div>
+                            <div>
+                                <p class="font-medium text-slate-800">Mở ứng dụng Locket để kiểm tra đã nâng cấp lên <span class="text-yellow-500">Gold</span> chưa</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0 bg-indigo-500 rounded-xl w-8 h-8 flex items-center justify-center text-white font-bold mr-3 mt-0.5 shadow-sm">7</div>
+                            <div>
+                                <p class="font-medium text-slate-800 mb-3">Tải xuống chứng chỉ chặn thu hồi để Update app thoả mái:</p>
+                                <a href="/anti-revoke.mobileconfig" target="_blank" rel="noopener" class="inline-flex items-center bg-gradient-to-r from-emerald-500 to-emerald-600 hover:from-emerald-600 hover:to-emerald-700 text-white font-medium py-2.5 px-4 rounded-xl transition-all duration-200 shadow-sm hover:shadow-md">
+                <i class="fas fa-download mr-2"></i>Tải chứng chỉ
+              </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
 
-      <div class="warning">
-        <span class="warning-icon">⚠️</span>
-        <strong>Lưu ý:</strong> Chỉ cài đặt profile từ nguồn tin cậy. Profile
-        này sẽ thay đổi cài đặt DNS của thiết bị để chống thu hồi chứng chỉ.
-      </div>
+        <footer class="text-center text-slate-600 text-sm">
+            <p>Lưu ý: Đây là cách lên Gold miễn phí vui lòng không sử dụng làm mục đích thương mại.</p>
+            <p class="mt-2">© 2025 <a href="https://donate.quandev.online/">MINH QUÂN MMO</a></p>
+        </footer>
+    </div>
 
-      <div class="steps">
-        <h3>🔧 Hướng dẫn cài đặt:</h3>
-        <div class="step">
-          <span class="step-number">1</span>
-          Nhấn nút "Cài Đặt DNS Profile" ở trên
+    <div id="toast" class="fixed bottom-4 left-1/2 transform -translate-x-1/2 bg-emerald-500 text-white px-4 py-2 rounded-xl border border-emerald-700/30 shadow-lg hidden">
+        <div class="flex items-center">
+            <i class="fas fa-check-circle mr-2"></i>
+            <span id="toast-message">Đã sao chép!</span>
         </div>
-        <div class="step">
-          <span class="step-number">2</span>
-          Chọn "Cho phép" để tải profile về máy
-        </div>
-        <div class="step">
-          <span class="step-number">3</span>
-          Vào Cài đặt chung → Quản lí VPN,DNS & Thiết bị
-        </div>
-        <div class="step">
-          <span class="step-number">4</span>
-          Chọn profile vừa tải và nhấn "Cài đặt"
-        </div>
-        <div class="step">
-          <span class="step-number">5</span>
-          Nhập mật khẩu thiết bị và hoàn tất cài đặt
-        </div>
-      </div>
     </div>
 
     <script>
-      function downloadProfile() {
-        // Tạo một thẻ a ẩn để trigger download
-        const link = document.createElement("a");
-        link.href = "https://profile.antiviet.click/anti-revoke.mobileconfig";
-        link.download = "https://profile.antiviet.click/anti-revoke.mobileconfig";
-        link.style.display = "none";
+        function showToast(message) {
+            var toast = document.getElementById('toast');
+            var toastMessage = document.getElementById('toast-message');
+            toastMessage.textContent = message;
+            toast.classList.remove('hidden');
+            clearTimeout(window.__toastTimer__);
+            window.__toastTimer__ = setTimeout(function() {
+                toast.classList.add('hidden');
+            }, 1800);
+        }
 
-        // Thêm vào DOM và trigger click
-        document.body.appendChild(link);
-        link.click();
-
-        // Xóa thẻ sau khi download
-        document.body.removeChild(link);
-
-        // Hiệu ứng visual feedback
-        const btn = document.querySelector(".download-btn");
-        const originalText = btn.innerHTML;
-        btn.innerHTML = "⬇️ Đang tải...";
-        btn.style.background = "linear-gradient(135deg, #28a745, #20c997)";
-
-        setTimeout(() => {
-          btn.innerHTML = "✅ Đã tải xong!";
-          setTimeout(() => {
-            btn.innerHTML = originalText;
-            btn.style.background =
-              "linear-gradient(135deg, #7877c6 0%, #ff77c6 100%)";
-          }, 2000);
-        }, 1000);
-      }
-
-      // Thêm hiệu ứng parallax nhẹ cho background
-      document.addEventListener("mousemove", (e) => {
-        const container = document.querySelector(".container");
-        const x = (e.clientX - window.innerWidth / 2) / 50;
-        const y = (e.clientY - window.innerHeight / 2) / 50;
-
-        container.style.transform = `translateX(${x}px) translateY(${y}px)`;
-      });
+        function copyToClipboard(text) {
+            if (!text) return;
+            try {
+                navigator.clipboard.writeText(text).then(function() {
+                    showToast('Đã sao chép: ' + text);
+                });
+            } catch (e) {
+                var ta = document.createElement('textarea');
+                ta.value = text;
+                document.body.appendChild(ta);
+                ta.select();
+                try {
+                    document.execCommand('copy');
+                    showToast('Đã sao chép: ' + text);
+                } finally {
+                    document.body.removeChild(ta);
+                }
+            }
+        }
+        document.querySelectorAll('[data-copy]').forEach(function(el) {
+            el.addEventListener('click', function() {
+                copyToClipboard(el.getAttribute('data-copy'));
+            });
+        });
     </script>
-  </body>
+</body>
+
 </html>
